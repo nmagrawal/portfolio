@@ -1,0 +1,441 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Already handled by JS, but good for non-JS scenarios */
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0; /* Ensure specific margins are set later if needed */
+}
+
+ul {
+    list-style: none; /* Remove default list styles, will be added back where needed */
+}
+
+a {
+    text-decoration: none; /* Remove default underline, will be added back where needed */
+    color: inherit; /* Inherit text color by default */
+}
+
+img, picture {
+    max-width: 100%;
+    display: block;
+}
+/* End Basic CSS Reset */
+
+/* Global Styles */
+:root {
+    --primary-color: #333;
+    --secondary-color: #555;
+    --accent-color: #007bff; /* A blue accent color */
+    --light-gray: #f4f4f4;
+    --white: #fff;
+    --text-color: #333;
+    --nav-link-hover-bg: #4a4a4a;
+    --footer-bg: #2b2b2b;
+
+    --font-primary: 'Arial', sans-serif; /* Fallback to Arial */
+    --font-secondary: 'Georgia', serif; /* For headings or specific text */
+}
+
+/* Apply a modern font from Google Fonts - Lora and Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', var(--font-primary); /* Montserrat for body */
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+/* Header and Navigation */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 0; /* Slightly increased padding */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px; /* Adjusted margin */
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1em; /* Slightly adjusted font size */
+    padding: 5px 10px; /* Added padding for better click area */
+    border-radius: 4px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Style for active link */
+    background-color: var(--accent-color);
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Main Content */
+main {
+    padding-top: 80px; /* Adjusted to match increased header padding */
+}
+
+section {
+    padding: 40px 20px; /* Standardized padding for sections */
+    margin-bottom: 0; /* Removed bottom margin, use padding for spacing */
+    border-bottom: 1px solid #ddd; /* Lighter border */
+    text-align: center;
+}
+
+section:last-of-type {
+    border-bottom: none; /* Remove border from the last section */
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', var(--font-secondary); /* Lora for headings */
+    color: var(--primary-color);
+    margin-top: 0; /* Removed default top margin */
+}
+
+h1 { /* Specific to site title or main page H1 */
+    font-size: 2.8em;
+    margin-bottom: 30px; /* Increased margin */
+    text-align: center;
+}
+
+h2 { /* Section headings */
+    font-size: 2.2em;
+    margin-bottom: 30px; /* Standardized margin */
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.7em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+/* Styles for the home section */
+#home {
+    background-color: var(--light-gray);
+    min-height: calc(100vh - 80px); /* Full viewport height minus header */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 3em; /* Larger headline for home */
+}
+
+#home p {
+    font-size: 1.2em;
+    max-width: 650px; /* Slightly increased max-width */
+    margin-bottom: 30px;
+}
+
+/* Call-to-action button styles */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color); /* Use accent color */
+    color: var(--white);
+    padding: 15px 30px; /* Larger padding */
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold; /* Bolder text */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Darker shade of accent color */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Styles for the About section */
+#about {
+    background-color: var(--white);
+}
+
+.about-content h3 {
+    font-size: 1.6em; /* Adjusted size */
+}
+
+.about-content p, .about-content ul {
+    font-size: 1.1em;
+    line-height: 1.7; /* Increased line height */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.about-content ul {
+    list-style-position: outside; /* Ensure bullets are outside */
+    padding-left: 20px; /* Reduced padding */
+}
+
+.experience-item {
+    margin-bottom: 25px; /* Increased margin */
+    padding-left: 20px;
+    border-left: 3px solid var(--accent-color); /* Accent border */
+}
+
+.experience-item h4 {
+    font-size: 1.3em; /* Adjusted size */
+    color: var(--secondary-color);
+}
+
+/* Styles for the Projects section */
+#projects {
+    background-color: var(--light-gray);
+}
+
+#projects h2 {
+    margin-bottom: 40px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px; /* Increased gap */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--white);
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: 8px;
+    padding: 25px; /* Increased padding */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1); /* Enhanced shadow */
+}
+
+.project-card h3 {
+    font-size: 1.6em; /* Adjusted size */
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 10px; /* Added margin top */
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px; /* Adjusted padding */
+    border: 2px solid var(--accent-color); /* Accent border */
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* Styles for the Contact section */
+#contact {
+    background-color: var(--white);
+}
+
+#contact-form {
+    max-width: 650px; /* Slightly increased width */
+    margin: 0 auto;
+    background-color: var(--light-gray);
+    padding: 35px; /* Increased padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.1em;
+    color: var(--secondary-color); /* Softer color for labels */
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    font-size: 1em;
+    border: 1px solid #ccc; /* Lighter border */
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color); /* Accent color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px; /* Increased padding */
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px 0; /* Increased padding */
+    background-color: var(--footer-bg);
+    color: var(--white);
+    width: 100%;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablets and smaller desktops */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    main {
+        padding-top: 70px; /* Adjust for potentially smaller header */
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Slightly smaller base font for mobile */
+    }
+    header {
+        padding: 10px 0;
+    }
+    nav ul li {
+        display: block; /* Stack navigation links */
+        margin: 10px 0;
+    }
+    nav ul li a {
+        display: block; /* Make links take full width */
+        padding: 10px;
+    }
+    main {
+        padding-top: 270px; /* Adjusted for stacked nav items (approx 4 items * (20px padding + 20px margin + text)) + header padding */
+    }
+    #home {
+        min-height: calc(100vh - 270px); /* Adjusted to match main padding-top */
+        padding: 20px;
+    }
+    #home h1 {
+        font-size: 2.2em;
+    }
+    #home p {
+        font-size: 1em;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    section {
+        padding: 30px 15px;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column for projects */
+        gap: 20px;
+    }
+    #contact-form {
+        padding: 25px;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 10px;
+    }
+    .submit-button {
+        padding: 12px;
+    }
+    footer {
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    main {
+        /* Adjusted for stacked nav items. Assumes nav items don't wrap to multiple lines each. */
+        padding-top: 270px; /* Consistent with the 768px breakpoint adjustment */
+    }
+     #home {
+        min-height: calc(100vh - 270px); /* Adjusted to match main padding-top */
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+}
